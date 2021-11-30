@@ -1,0 +1,8 @@
+WebStore
+
+
+
+Tentar corrigir o erro do antigo mvc
+Como ?
+
+Excluindo as linhas que eu n vou precisar de sttp
