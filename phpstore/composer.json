@@ -17,6 +17,9 @@
     "autoload-dev": {
         "psr-4": {
             "core\\": "core/"
-        }
+        },
+        "files": [
+            "Config.php"
+        ]
     }
 }

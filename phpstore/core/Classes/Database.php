@@ -83,7 +83,6 @@ class database
     //Verfica se é uma instrução insert
     public function insert($sql, $parametros = null)
     {
-        //Verifica se a expressão é um select
         if (!preg_match("/^INSERT/i", $sql)) {
             throw new Exception("Base de dados - Não é uma instrução em insert", 1);
             //die("Base de dados - Não é uma instrução em select");
