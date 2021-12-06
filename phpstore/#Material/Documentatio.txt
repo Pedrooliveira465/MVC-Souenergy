@@ -4,6 +4,7 @@ Version 1.0.0
 
 #Material - Pasta em que vai conter todos os arquivos .txt, esses arquivos serão responsáveis por 
 armazenar informações da aplicação entre outros.
+Adição do arquivo Base_de_Dados.sql 
 
 #core - Dentro da pasta core é contida a pasta <Classes> onde nela está sendo configurada todas as nossas
 funções e também a nossa conexão com o banco de dados.
@@ -15,3 +16,15 @@ Dentro da pasta Public também estará contido o arquivo Index.php.
 <src>
 
 <vendor> Pasta responsável por armazenar o arquivo de autoload.
+
+
+
+
+
+
+
+
+Comando Strtolower -  evita que possam ser criados emails com letras maiúsculas e minúsculas
+(Passa toda a string para letras minúsculas)
+
+<Trim> - Elimina todos os espaços do inicio e do fim da string 

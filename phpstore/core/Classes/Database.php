@@ -44,6 +44,7 @@ class database
     //Verifica se é uma instrução insert
     public function select($sql, $parametros = null)
     {
+        $sql = trim($sql);
         //Verifica se a expressão é um select
         if (!preg_match("/^SELECT/i", $sql)) {
             throw new Exception("Base de dados - Não é uma instrução em select", 1);
@@ -181,7 +182,6 @@ class database
         //Retorna os resultados obtidos
         return $resultados;
     }
-
 
     //===============================================================
     //Método genérico 

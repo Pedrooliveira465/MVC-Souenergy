@@ -5,7 +5,11 @@
 $router = [
     'inicio' => 'main@index',
     'loja' => 'main@loja',
-    'carrinho' => 'main@carrinho'
+    'carrinho' => 'main@carrinho',
+
+    //cliente
+    'novo_cliente' => 'main@novo_cliente',
+    'criar_cliente' => 'main@criar_cliente',
 ];
 
 //Define ação por defeito(Ação padrão, se nenhum endereço for passado vai cair na página inicio)
