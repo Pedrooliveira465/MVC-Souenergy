@@ -1,0 +1,26 @@
+/*appp.css*/
+
+.navegacao {
+    background-color: #FF8C00;
+    color: black;
+}
+
+.rodape{
+    background-color: rgb(42, 67, 78);
+    max-height: 50px;
+    color: white;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    margin: 0px 10px;
+
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+    color: white;
+
+    
+}

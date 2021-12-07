@@ -1,0 +1,25 @@
+{
+    "name": "daniel.sousa/phpstore",
+    "description": "Loja online em php",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "DanielSousa\\Phpstore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daniel Sousa",
+            "email": "S0us4.dan@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload-dev": {
+        "psr-4": {
+            "Core\\": "Core/"
+        },
+        "files": [
+            "Config.php"
+        ]
+    }
+}

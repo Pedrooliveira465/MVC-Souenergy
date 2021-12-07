@@ -1,0 +1,45 @@
+
+Tabela Clientes
+==========================================================
+
+CREATE TABLE clientes 
+(
+    id_cliente 
+    email 
+    senha
+    nome_completo 
+    cidade 
+    telefone 
+    purl 
+    activo 
+    morada 
+    create_at 
+    update_at
+    delete_at 
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Valor retornado 
+
+Array
+(
+    [text_email] => danieldeivedson2018@gmail.com
+    [text_senha_1] => Sindex@20
+    [text_senha_2] => Sindex@20
+    [nome_completo] => Daniel Deividson Mesquita de Sousa
+    [text_morada] => Conjunto Metropolitano
+    [text_cidade] => Caucaia
+    [text_telefone] => 89810079
+)
