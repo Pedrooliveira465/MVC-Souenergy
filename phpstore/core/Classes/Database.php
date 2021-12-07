@@ -1,6 +1,6 @@
 <?php
 
-namespace core\Classes;
+namespace Core\Classes;
 
 use Exception;
 use PDO;
@@ -8,7 +8,7 @@ use PDOException;
 
 /* Gestão de base de dados*/
 
-class database
+class Database
 {
 
     private $ligacao;

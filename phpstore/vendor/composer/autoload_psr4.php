@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'core\\' => array($baseDir . '/core'),
     'DanielSousa\\Phpstore\\' => array($baseDir . '/src'),
+    'Core\\' => array($baseDir . '/Core'),
 );

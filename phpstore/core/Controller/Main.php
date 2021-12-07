@@ -1,11 +1,11 @@
 <?php
 
-namespace core\Controller;
+namespace Core\Controller;
 
-use core\Classes\database;
-use core\Classes\Store;
+use Core\Classes\Database;
+use Core\Classes\Store;
 
-class main
+class Main
 {
 
     //==========================================================
@@ -74,7 +74,7 @@ class main
 
         //Criar novo cliente
         //Verificação de senha (Senha 1 = Senha2)
-        if ($_POST['text_senha_1'] != $_POST['text_senha_2']) {
+        if ($_POST['text_senha_1'] !== $_POST['text_senha_2']) {
             //Senhas diferentes
             $_SESSION['erro'] = 'As senhas estão diferentes, verifique novamente';
             $this->novo_cliente();
@@ -87,6 +87,8 @@ class main
             ':email' => strtolower(trim($_POST['text_email']))
         ];
         $result = $bd->select("SELECT email FROM clientes WHERE email = :email", $params);
+        print_r($result);
+        die;
 
         if (count($result) != 0) {
             die('Já existe uma conta para esse endereço de email');

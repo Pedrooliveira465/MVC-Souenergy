@@ -4,9 +4,17 @@
             <h3 class="text-center">Registro de novo cliente</h3>
 
             <!-- Formulário para a criação de um novo utilizador -->
-            <form action="?a=criar_cliente" method="post">
+            <form action="/criar-cliente" method="post">
 
                 <!-- Código php que apresenta o erro para as senhas difeerentes -->
+
+                <?php if (isset($_SESSION['erro'])) : ?>
+                    <div class="alert alert-danger text-center p-2">
+                        <?= $_SESSION['erro'] ?>
+                        <!-- Bloco de php que retira o erro dda tela após um refresh -->
+                        <?php unset($_SESSION['erro']) ?>
+                    </div>
+                <?php endif;  ?>
 
                 <!-- Email -->
                 <div class="my-3">
@@ -57,14 +65,7 @@
                     <input type="submit" value="Criar conta" class="btn btn-primary">
                 </div>
 
-                <?php if (isset($_SESSION['erro'])) : ?>
-                    <div class="alert alert-danger text-center p-2">
-                        <?= $_SESSION['erro'] ?>
-                        <!-- Bloco de php que retira o erro dda tela após um refresh -->
-                        <?php unset($_SESSION['erro']) ?>
-
-                    </div>
-                <?php endif;  ?>
+                <br>
                 <br>
             </form>
 

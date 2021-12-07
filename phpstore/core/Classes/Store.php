@@ -1,6 +1,6 @@
 <?php
 
-namespace core\Classes;
+namespace Core\Classes;
 
 use Exception;
 

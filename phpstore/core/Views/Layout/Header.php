@@ -11,8 +11,8 @@ use core\Classes\Store;
             </a>
         </div>
         <div class="col-6 text-end p-3">
-            <a href="?a=inicio" class="nav-item">Home</a>
-            <a href="?a=loja" class="nav-item">Loja</a>
+            <a href="/inicio" class="nav-item">Home</a>
+            <a href="/loja" class="nav-item">Loja</a>
 
             <!--Verifica se existe cliente na sessão-->
             <?php if (Store::Clientelog()) :  ?>
@@ -21,11 +21,11 @@ use core\Classes\Store;
 
             <?php else : ?>
 
-                <a href="?a=Login" class="nav-item">Login</a>
-                <a href="?a=novo_cliente" class="nav-item">Criar conta</a>
+                <a href="/Login" class="nav-item">Login</a>
+                <a href="/novo-cliente" class="nav-item">Criar conta</a>
 
             <?php endif; ?>
-            <a href="?a=carrinho"> <i class="fas fa-shopping-cart"> </i> </a>
+            <a href="/carrinho"> <i class="fas fa-shopping-cart"> </i> </a>
             <span class="badge bg-warning"></span>
         </div>
     </div>
