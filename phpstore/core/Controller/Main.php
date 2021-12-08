@@ -78,40 +78,39 @@ class Main
         //Criar novo cliente
         //Verificação de senha (Senha 1 = Senha2)
         if ($_POST['text_senha_1'] !== $_POST['text_senha_2']) {
+
             //Senhas diferentes
             $_SESSION['erro'] = 'As senhas estão diferentes, verifique novamente';
             $this->novo_cliente();
             return;
         }
 
-        //inserir novo cliente na base de dados e devolver o purl
-        $email_cliente = strtolower(trim($_POST['text_email']));
-        $purl = $cliente->registar_cliente();
-
-        //enviar do email para o cliente
-        $email = new EnviarEmail(); 
-        $resultado = $email->enviar_email_confirmacao_novo_cliente($email_cliente, $purl);
-
-        if($resultado = true){
-            echo 'Email enviado';
-        }else{
-            echo 'Aconteceu um erro';
-        }
-
         //Base de dados Verificar se não já  existe um cliente com o mesmo email 
 
         $cliente = new Clientes();
 
-        if ($cliente->verificar_email_existe($_POST['text_email'])) {
+        // if ($cliente->verificar_email_existe($_POST['text_email'])) {
 
-            $_SESSION['error'] = 'Já existe um email cadastrado';
-            $this->novo_cliente();
-            return;
+        //     $_SESSION['error'] = 'Já existe um email cadastrado';
+        //     $this->novo_cliente();
+        //     return;
+        // }
+
+
+        //inserir novo cliente na base de dados e devolver o purl
+        $email_cliente = strtolower(trim($_POST['text_email']));
+        $purl = $cliente->registrar_cliente();
+
+        //enviar do email para o cliente
+        $email = new EnviarEmail();
+        $resultado = $email->enviar_email_confirmacao_novo_cliente($email_cliente, $purl);
+
+        if ($resultado == true) {
+            echo 'Email enviado';
+        } else {
+            echo 'Aconteceu um erro';
         }
 
-
-        //inserir novo cliente no banco de dados
-        $purl = $cliente->registrar_cliente();
 
         //Criar o link purl
         $link_purl = "http://localhost/PHPSTORE/public/?a=confirmar_email&purl=$purl";
