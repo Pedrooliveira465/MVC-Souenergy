@@ -31,11 +31,11 @@ class Store
         //Verifica se existe um cliente com sessão iniciada
         return isset($_SESSION['cliente']);
     }
-}
 
-/*
-html_header.php 
-nav_bar.php
-inicio.php
-html_footer.php 
- */
+    public static function criarhash($num_caracter = 12)
+    {
+        //criar hash
+        $chars = '01234567890123456789abcdefghijklmnopqrstuvxwyzabcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVXWYZABCDEFGHIJKLMNOPQRSTUVXWYZ';
+        return substr(str_shuffle($chars), 0, $num_caracter);
+    }
+}

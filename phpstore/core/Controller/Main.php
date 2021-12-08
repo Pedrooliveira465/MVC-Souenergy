@@ -87,14 +87,47 @@ class Main
             ':email' => strtolower(trim($_POST['text_email']))
         ];
         $result = $bd->select("SELECT email FROM clientes WHERE email = :email", $params);
-        print_r($result);
-        die;
 
         if (count($result) != 0) {
-            die('Já existe uma conta para esse endereço de email');
+            $_SESSION['error'] = 'Já existe um email cadastrado';
+            $this->novo_cliente();
+            return;
         }
-        die('OK');
+
+        $purl = Store::criarhash();
+        $params = [
+            ':email' => strtolower(trim($_POST['text_email'])),
+            ':senha' => password_hash(trim($_POST['text_senha_1']), PASSWORD_DEFAULT),
+            ':nome_completo' => (trim($_POST['nome_completo'])),
+            ':morada' => (trim($_POST['text_morada'])),
+            ':cidade' => (trim($_POST['text_cidade'])),
+            ':telefone' => (trim($_POST['text_telefone'])),
+            ':purl' => $purl,
+            ':activo' => 0
+
+        ];
+        $bd->insert("INSERT INTO clientes VALUES (0, 
+        :email,
+        :senha,
+        :nome_completo,
+        :morada,
+        :cidade,
+        :telefone,
+        :purl,
+        :activo,
+        NOW(),
+        NOW(),
+        NULL
+
+        )
+
+
+         ", $params);
+        die('Inserido');
     }
+
+    ///Cliente pronto para ser inserido na base de dados
+    //Criar uma purl 
 
     //==========================================================
     //Apresenta a pagina do carrinho
