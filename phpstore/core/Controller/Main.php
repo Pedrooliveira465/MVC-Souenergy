@@ -137,8 +137,24 @@ class Main
         die('Inserido');
     }
 
-    ///Cliente pronto para ser inserido na base de dados
-    //Criar uma purl 
+
+
+
+
+
+    public function login()
+    {
+
+        //Verifica se já existe um usuário logado
+
+        Store::layout([
+            'Layout/Html_Header',
+            'Layout/Header',    //Header que contém a navegação do header
+            'Login',
+            'Layout/Footer',
+            'Layout/Html_Footer',
+        ]);
+    }
 
     //==========================================================
     //Apresenta a pagina do carrinho

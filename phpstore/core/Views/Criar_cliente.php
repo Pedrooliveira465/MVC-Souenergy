@@ -15,6 +15,9 @@
                         <?php unset($_SESSION['erro']) ?>
                     </div>
                 <?php endif;  ?>
+
+
+                <!-- ===================================================================================== -->
                 <?php if (isset($_SESSION['error'])) : ?>
                     <div class="alert alert-danger text-center p-2">
                         <?= $_SESSION['error'] ?>
@@ -35,7 +38,7 @@
                     <input type="password" name="text_senha_1" placeholder="Senha" class="form-control" required>
                 </div>
 
-                <!-- Senha_1 -->
+                <!-- Senha_2 -->
                 <div class="my-3">
                     <label for="">Confirme sua senha</label>
                     <input type="password" name="text_senha_2" placeholder="Confirme sua senha" class="form-control" required>

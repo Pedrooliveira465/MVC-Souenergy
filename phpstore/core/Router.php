@@ -33,6 +33,12 @@ $router['loja'] = [
     'action' => "loja"
 ];
 
+$router['login'] = [
+    'rota' => '/login',
+    'controller' => 'Main',
+    'action' => 'login'
+];
+
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 foreach ($router as $rota) :
     if ($url === $rota['rota']) :
