@@ -3,15 +3,16 @@
 namespace Core\Controller;
 
 use Core\Classes\Database;
+use Core\Classes\EnviarEmail;
 use Core\Classes\Store;
 
 class Main
 {
-
     //==========================================================
     //Apresenta a pagina index
     public function index()
     {
+
         /*
         1. Carregar e tratar dados (cálculos) e (Base de dados)
         2. Apresentar o layout (Views)
@@ -79,6 +80,20 @@ class Main
             $_SESSION['erro'] = 'As senhas estão diferentes, verifique novamente';
             $this->novo_cliente();
             return;
+        }
+
+        //inserir novo cliente na base de dados e devolver o purl
+        $email_cliente = strtolower(trim($_POST['text_email']));
+        $purl = $cliente->registar_cliente();
+
+        //enviar do email para o cliente
+        $email = new EnviarEmail(); 
+        $resultado = $email->enviar_email_confirmacao_novo_cliente($email_cliente, $purl);
+
+        if($resultado = true){
+            echo 'Email enviado';
+        }else{
+            echo 'Aconteceu um erro';
         }
 
         //Base de dados Verificar se não já  existe um cliente com o mesmo email 

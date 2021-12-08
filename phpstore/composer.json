@@ -13,7 +13,9 @@
             "email": "S0us4.dan@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    },
     "autoload-dev": {
         "psr-4": {
             "Core\\": "Core/"

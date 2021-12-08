@@ -43,3 +43,7 @@ Array
     [text_cidade] => Caucaia
     [text_telefone] => 89810079
 )
+
+
+emailteste :devteste596@gmail.com
+senha:devtest@123
