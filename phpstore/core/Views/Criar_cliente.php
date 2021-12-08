@@ -15,6 +15,13 @@
                         <?php unset($_SESSION['erro']) ?>
                     </div>
                 <?php endif;  ?>
+                <?php if (isset($_SESSION['error'])) : ?>
+                    <div class="alert alert-danger text-center p-2">
+                        <?= $_SESSION['error'] ?>
+                        <!-- Bloco de php que retira o erro dda tela após um refresh -->
+                        <?php unset($_SESSION['error']) ?>
+                    </div>
+                <?php endif;  ?>
 
                 <!-- Email -->
                 <div class="my-3">
