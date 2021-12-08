@@ -4,6 +4,7 @@ namespace Core\Controller;
 
 use Core\Classes\Database;
 use Core\Classes\Store;
+use Core\Models\Clientes;
 
 class Main
 {
@@ -16,6 +17,7 @@ class Main
         1. Carregar e tratar dados (cálculos) e (Base de dados)
         2. Apresentar o layout (Views)
         */
+
         Store::layout([
             'Layout/Html_Header',
             'Layout/Header',    //Header que contém a navegação do header
@@ -82,18 +84,15 @@ class Main
         }
 
         //Base de dados Verificar se não já  existe um cliente com o mesmo email 
-        $bd = new Database();
-        $params = [
-            ':email' => strtolower(trim($_POST['text_email']))
-        ];
-        $result = $bd->select("SELECT email FROM clientes WHERE email = :email", $params);
-        print_r($result);
-        die;
 
-        if (count($result) != 0) {
-            die('Já existe uma conta para esse endereço de email');
+        $cliente = new Clientes();
+
+        if ($cliente->verificar_email_existe($_POST['text_email'])) {
+
+            $_SESSION['erro'] = 'Já existe um email cadastrado';
+            $this->novo_cliente();
+            return;
         }
-        die('OK');
     }
 
     //==========================================================
