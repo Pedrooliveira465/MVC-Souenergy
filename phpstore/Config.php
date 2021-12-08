@@ -7,9 +7,9 @@ define('BASE_URL',          'localhost:8000/inicio');
 
 //Mysql
 define('MYSQL_SERVER',      'localhost');
-define('MYSQL_DATABSE',     'php_store');
-define('MYSQL_USER',        'php_store_use');
-define('MYSQL_PASS',        'va63hAqa5iQO'); //va63hAqa5iQO
+define('MYSQL_DATABSE',     'phpstore');
+define('MYSQL_USER',        'root');
+define('MYSQL_PASS',        '8ogu4I'); //va63hAqa5iQO
 define('MYSQL_CHARSET',     'utf-8');
 
 //Email
