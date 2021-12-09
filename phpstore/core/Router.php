@@ -39,6 +39,12 @@ $router['login'] = [
     'action' => 'Login'
 ];
 
+$router['confirmar_email'] = [
+    'rota' => '/confirmar_email',
+    'controller' => 'Main',
+    'action' => 'confirmar_email'
+];
+
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 foreach ($router as $rota) :
     if ($url === $rota['rota']) :

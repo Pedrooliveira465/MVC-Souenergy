@@ -89,12 +89,12 @@ class Main
 
         $cliente = new Clientes();
 
-        // if ($cliente->verificar_email_existe($_POST['text_email'])) {
+         if ($cliente->verificar_email_existe($_POST['text_email'])) {
 
-        //     $_SESSION['error'] = 'Já existe um email cadastrado';
-        //     $this->novo_cliente();
-        //     return;
-        // }
+           $_SESSION['error'] = 'Já existe um email cadastrado';
+             $this->novo_cliente();
+             return;
+         }
 
 
         //inserir novo cliente na base de dados e devolver o purl
@@ -111,14 +111,42 @@ class Main
             echo 'Aconteceu um erro';
         }
 
-
         //Criar o link purl
         $link_purl = "http://localhost/PHPSTORE/public/?a=confirmar_email&purl=$purl";
     }
 
+        //Confirmação do email
+        public function confirmar_email(){
 
+            //verificar se já existe sessão
+            if(Store::clientelog()){
+                $this->index();
+                return;
+            }
 
+            //verificar se existe na query string um purl
+            if(!isset($_GET['purl'])){
+                $this->index();
+                return;
+            }
 
+            $purl = $_GET['purl'];
+
+            //verifica se o purl é válido
+            if(strlen($purl) != 12){
+                $this->index();
+                return;
+            }
+
+            $cliente = new Clientes();
+            $resultado = $cliente->validar_email($purl);
+
+            if($resultado){
+                echo "Conta validada com sucesso.";
+            }else{
+                echo "A conta não foi validada.";
+            }
+        }
 
     public function login()
     {

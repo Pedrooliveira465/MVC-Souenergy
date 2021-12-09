@@ -3,7 +3,7 @@
 define("APP_NAME",          "WEBDAN");
 define("APP_VERSION",       "1.0.0");
 
-define('BASE_URL',          'localhost:8000/inicio');
+define('BASE_URL',          'http://localhost:8000');
 
 //Mysql
 define('MYSQL_SERVER',      'localhost');

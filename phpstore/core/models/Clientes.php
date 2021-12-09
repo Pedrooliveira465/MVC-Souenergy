@@ -68,4 +68,31 @@ class Clientes
         //retorna o purl criado
         return $purl;
     }
+
+    //==========================================================
+    public function validar_email($purl){
+        //validar o email do novo cliente 
+        $bd = new Database();
+        $params = [
+            ':purl' => $purl
+        ];
+        $resultados = $bd->select("SELECT * FROM clientes WHERE purl = :purl", $params);
+
+        //verifica se foi encontrado o cliente
+        if(count($resultados) != 1){
+            return false;
+        }
+
+        //foi encontrado este cliente com o purl indicado
+        $id_cliente = $resultados[0]->id_cliente;
+
+        //atualizar os dados do cliente
+        $params = [
+            ':id_cliente' => $id_cliente
+        ];
+        
+        $bd->update("UPDATE clientes SET purl = NULL, activo = 1, update_at = NOW()", $params);
+
+        return true;
+    }
 }
